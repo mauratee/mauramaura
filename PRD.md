@@ -1267,6 +1267,60 @@ Steps to Verify:
 
 ---
 
+#### Task 1.7.1: Set Up Testing Framework [TODO]
+
+```
+Category:     Testing Infrastructure
+Description:  Configure Jest and React Testing Library for unit and
+              integration tests.
+
+Steps to Verify:
+  - Jest installed and configured
+  - React Testing Library installed
+  - pnpm test runs successfully
+  - Coverage reporting configured
+  - Test scripts added to package.json
+
+
+```
+
+---
+
+#### Task 1.7.2: Write Unit Tests for Authentication [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for authentication flow and middleware.
+
+Steps to Verify:
+  - Tests for credentials provider (valid/invalid login)
+  - Tests for auth middleware (protected routes)
+  - Tests for rate limiting on login
+  - All tests pass
+
+
+```
+
+---
+
+#### Task 1.7.3: Write Unit Tests for Base UI Components [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for reusable UI components.
+
+Steps to Verify:
+  - Tests for Button component (variants, states, click handlers)
+  - Tests for Input component (validation, error display)
+  - Tests for Card component
+  - Tests for Modal component (open/close behavior)
+  - All tests pass
+
+
+```
+
+---
+
 ### Phase 2: Portfolio
 
 ---
@@ -1488,6 +1542,59 @@ Steps to Verify:
   - All metadata displayed (title, description, medium, etc.)
   - Back to gallery link
   - Link to product if available for purchase
+
+
+```
+
+---
+
+#### Task 2.5.1: Write Unit Tests for Category API [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for category CRUD endpoints.
+
+Steps to Verify:
+  - Tests for GET /api/categories (public)
+  - Tests for admin category CRUD endpoints
+  - Tests for delete prevention when category in use
+  - All tests pass
+
+
+```
+
+---
+
+#### Task 2.5.2: Write Unit Tests for Artwork API [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for artwork API endpoints.
+
+Steps to Verify:
+  - Tests for GET /api/artwork (list, filtering, pagination)
+  - Tests for GET /api/artwork/:slug
+  - Tests for admin artwork CRUD endpoints
+  - Tests cover success and error cases
+  - All tests pass
+
+
+```
+
+---
+
+#### Task 2.5.3: Write Unit Tests for Gallery Components [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for gallery and artwork components.
+
+Steps to Verify:
+  - Tests for ArtworkCard component
+  - Tests for CategoryFilter component
+  - Tests for gallery grid layout
+  - Tests for artwork detail display
+  - All tests pass
 
 
 ```
@@ -1820,41 +1927,16 @@ Steps to Verify:
 
 ---
 
-### Phase 4: Testing & Documentation
-
----
-
-#### Task 4.1.1: Set Up Testing Framework [TODO]
+#### Task 3.8.1: Write Unit Tests for Product API [TODO]
 
 ```
-Category:     Testing Infrastructure
-Description:  Configure Jest and React Testing Library for unit and
-              integration tests.
+Category:     Unit Testing
+Description:  Create unit tests for product API endpoints.
 
 Steps to Verify:
-  - Jest installed and configured
-  - React Testing Library installed
-  - pnpm test runs successfully
-  - Coverage reporting configured
-  - Test scripts added to package.json
-
-
-```
-
----
-
-#### Task 4.1.2: Write API Unit Tests [TODO]
-
-```
-Category:     Backend Testing
-Description:  Create unit tests for all API route handlers.
-
-Steps to Verify:
-  - Tests for /api/artwork endpoints (list, get by slug)
-  - Tests for /api/products endpoints (list, get by slug)
-  - Tests for /api/cart endpoints (get, add, remove)
-  - Tests for /api/checkout endpoint
-  - Tests for /api/inquiries endpoint
+  - Tests for GET /api/products (list, filtering, pagination)
+  - Tests for GET /api/products/:slug
+  - Tests for admin product CRUD endpoints
   - Tests cover success and error cases
   - All tests pass
 
@@ -1863,19 +1945,17 @@ Steps to Verify:
 
 ---
 
-#### Task 4.1.3: Write Admin API Tests [TODO]
+#### Task 3.8.2: Write Unit Tests for Cart API [TODO]
 
 ```
-Category:     Backend Testing
-Description:  Create tests for all admin API endpoints with auth.
+Category:     Unit Testing
+Description:  Create unit tests for shopping cart endpoints.
 
 Steps to Verify:
-  - Tests for admin artwork CRUD
-  - Tests for admin products CRUD
-  - Tests for admin categories CRUD
-  - Tests for admin orders management
-  - Tests verify authentication required
-  - Tests verify authorization (admin only)
+  - Tests for GET /api/cart
+  - Tests for POST /api/cart (add/update items)
+  - Tests for DELETE /api/cart/:item_id
+  - Tests for inventory validation
   - All tests pass
 
 
@@ -1883,11 +1963,28 @@ Steps to Verify:
 
 ---
 
-#### Task 4.1.4: Write Stripe Webhook Tests [TODO]
+#### Task 3.8.3: Write Unit Tests for Checkout [TODO]
 
 ```
-Category:     Backend Testing
-Description:  Create tests for Stripe webhook handling.
+Category:     Unit Testing
+Description:  Create unit tests for checkout and Stripe integration.
+
+Steps to Verify:
+  - Tests for POST /api/checkout (session creation)
+  - Tests for shipping calculation
+  - Tests for empty cart handling
+  - All tests pass
+
+
+```
+
+---
+
+#### Task 3.8.4: Write Unit Tests for Stripe Webhooks [TODO]
+
+```
+Category:     Unit Testing
+Description:  Create unit tests for Stripe webhook handling.
 
 Steps to Verify:
   - Tests for checkout.session.completed event
@@ -1902,36 +1999,15 @@ Steps to Verify:
 
 ---
 
-#### Task 4.2.1: Write Component Unit Tests [TODO]
+#### Task 3.8.5: Write Unit Tests for Shop Components [TODO]
 
 ```
-Category:     Frontend Testing
-Description:  Create unit tests for reusable UI components.
+Category:     Unit Testing
+Description:  Create unit tests for shop and cart components.
 
 Steps to Verify:
-  - Tests for Button component (variants, states)
-  - Tests for Input component (validation, errors)
-  - Tests for ImageUpload component
-  - Tests for CategoryFilter component
-  - Tests for ArtworkCard component
   - Tests for ProductCard component
-  - All tests pass
-
-
-```
-
----
-
-#### Task 4.2.2: Write Page Component Tests [TODO]
-
-```
-Category:     Frontend Testing
-Description:  Create tests for page components and layouts.
-
-Steps to Verify:
-  - Tests for public layout (header, footer, nav)
-  - Tests for admin layout (sidebar, auth state)
-  - Tests for gallery page (filtering, pagination)
+  - Tests for CartItem component
   - Tests for cart page (item display, quantity)
   - Tests for checkout success page
   - All tests pass
@@ -1941,7 +2017,11 @@ Steps to Verify:
 
 ---
 
-#### Task 4.3.1: Write E2E Tests - Public Flow [TODO]
+### Phase 4: Integration Testing & Documentation
+
+---
+
+#### Task 4.1.1: Write E2E Tests - Public Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -1961,7 +2041,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.3.2: Write E2E Tests - Checkout Flow [TODO]
+#### Task 4.1.2: Write E2E Tests - Checkout Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -1980,7 +2060,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.3.3: Write E2E Tests - Admin Flow [TODO]
+#### Task 4.1.3: Write E2E Tests - Admin Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -2000,7 +2080,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.4.1: Create API Documentation [TODO]
+#### Task 4.2.1: Create API Documentation [TODO]
 
 ```
 Category:     Documentation
@@ -2018,7 +2098,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.4.2: Create Deployment Guide [TODO]
+#### Task 4.2.2: Create Deployment Guide [TODO]
 
 ```
 Category:     Documentation
@@ -2037,7 +2117,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.4.3: Create Admin User Guide [TODO]
+#### Task 4.2.3: Create Admin User Guide [TODO]
 
 ```
 Category:     Documentation
@@ -2056,7 +2136,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.4.4: Write README [TODO]
+#### Task 4.2.4: Write README [TODO]
 
 ```
 Category:     Documentation
@@ -2076,7 +2156,7 @@ Steps to Verify:
 
 ---
 
-#### Task 4.4.5: Document Future Enhancements [TODO]
+#### Task 4.2.5: Document Future Enhancements [TODO]
 
 ```
 Category:     Documentation
