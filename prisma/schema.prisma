@@ -9,3 +9,168 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+// =============================================================================
+// ENUMS
+// =============================================================================
+
+enum OrderStatus {
+  pending
+  paid
+  shipped
+  delivered
+  cancelled
+}
+
+enum InquiryStatus {
+  new
+  read
+  replied
+}
+
+// =============================================================================
+// MODELS
+// =============================================================================
+
+/// Authentication for the admin dashboard
+model AdminUser {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  name         String
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("admin_users")
+}
+
+/// Shared categories for both Artwork and Products
+model Category {
+  id           String   @id @default(uuid())
+  name         String
+  slug         String   @unique
+  description  String?
+  displayOrder Int      @default(0) @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  // Relations
+  artworks Artwork[]
+  products Product[]
+
+  @@map("categories")
+}
+
+/// Portfolio pieces (may or may not be for sale)
+model Artwork {
+  id           String   @id @default(uuid())
+  title        String
+  slug         String   @unique
+  description  String?  @db.Text
+  categoryId   String   @map("category_id")
+  medium       String?
+  dimensions   String?
+  year         Int?
+  images       Json     @default("[]")
+  featured     Boolean  @default(false)
+  displayOrder Int?     @map("display_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  category Category  @relation(fields: [categoryId], references: [id])
+  products Product[]
+
+  @@map("artworks")
+}
+
+/// Items for sale in the shop
+model Product {
+  id             String   @id @default(uuid())
+  artworkId      String?  @map("artwork_id")
+  categoryId     String   @map("category_id")
+  title          String
+  slug           String   @unique
+  description    String?  @db.Text
+  price          Decimal  @db.Decimal(10, 2)
+  compareAtPrice Decimal? @map("compare_at_price") @db.Decimal(10, 2)
+  inventoryCount Int      @default(0) @map("inventory_count")
+  sku            String?
+  images         Json     @default("[]")
+  weightOz       Decimal? @map("weight_oz") @db.Decimal(6, 2)
+  active         Boolean  @default(true)
+  featured       Boolean  @default(false)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  artwork  Artwork? @relation(fields: [artworkId], references: [id])
+  category Category @relation(fields: [categoryId], references: [id])
+
+  @@map("products")
+}
+
+/// Shipping rates by region
+model ShippingZone {
+  id            String   @id @default(uuid())
+  name          String
+  countries     Json     @default("[\"*\"]")
+  baseRate      Decimal  @map("base_rate") @db.Decimal(10, 2)
+  perItemRate   Decimal? @map("per_item_rate") @db.Decimal(10, 2)
+  freeThreshold Decimal? @map("free_threshold") @db.Decimal(10, 2)
+  estimatedDays String?  @map("estimated_days")
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  // Relations
+  orders Order[]
+
+  @@map("shipping_zones")
+}
+
+/// Customer purchases (guest checkout — no accounts)
+model Order {
+  id              String      @id @default(uuid())
+  orderNumber     String      @unique @map("order_number")
+  email           String
+  name            String
+  shippingAddress Json        @map("shipping_address")
+  lineItems       Json        @map("line_items")
+  subtotal        Decimal     @db.Decimal(10, 2)
+  shippingCost    Decimal     @map("shipping_cost") @db.Decimal(10, 2)
+  shippingZoneId  String?     @map("shipping_zone_id")
+  tax             Decimal     @default(0) @db.Decimal(10, 2)
+  total           Decimal     @db.Decimal(10, 2)
+  status          OrderStatus @default(pending)
+  stripePaymentId String?     @map("stripe_payment_id")
+  trackingNumber  String?     @map("tracking_number")
+  notes           String?     @db.Text
+  createdAt       DateTime    @default(now()) @map("created_at")
+  updatedAt       DateTime    @updatedAt @map("updated_at")
+
+  // Relations
+  shippingZone ShippingZone? @relation(fields: [shippingZoneId], references: [id])
+
+  @@map("orders")
+}
+
+/// Contact form submissions
+model Inquiry {
+  id        String        @id @default(uuid())
+  name      String
+  email     String
+  subject   String?
+  message   String        @db.Text
+  status    InquiryStatus @default(new)
+  createdAt DateTime      @default(now()) @map("created_at")
+
+  @@map("inquiries")
+}
+
+/// Key-value store for site settings
+model SiteConfig {
+  key       String   @id
+  value     String   @db.Text
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("site_config")
+}

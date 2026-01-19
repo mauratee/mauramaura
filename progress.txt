@@ -68,3 +68,16 @@
 - Added scripts: db:push, db:migrate, db:studio, db:generate
 - npm run lint and npm run build pass successfully
 
+### Task 1.2.2: Create Prisma Schema [FINISHED]
+- AdminUser model defined with all fields from PRD (id, email, passwordHash, name, timestamps)
+- Category model defined with all fields (id, name, slug, description, displayOrder)
+- Artwork model defined with Category relation (id, title, slug, description, medium, dimensions, year, images, featured)
+- Product model defined with optional Artwork relation (id, title, slug, price, compareAtPrice, inventoryCount, sku, images, weightOz, active, featured)
+- ShippingZone model defined (id, name, countries, baseRate, perItemRate, freeThreshold, estimatedDays, active)
+- Order model defined with ShippingZone relation (id, orderNumber, email, name, shippingAddress, lineItems, subtotal, shippingCost, tax, total, status, stripePaymentId, trackingNumber, notes)
+- Inquiry model defined (id, name, email, subject, message, status)
+- SiteConfig model defined (key, value, updatedAt)
+- All enums defined: OrderStatus (pending, paid, shipped, delivered, cancelled), InquiryStatus (new, read, replied)
+- npx prisma format validates and formats schema successfully
+- npm run lint and npm run build pass successfully
+
