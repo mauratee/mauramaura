@@ -1250,6 +1250,23 @@ Steps to Verify:
 
 ---
 
+#### Task 1.6.1: Create Docker Configuration [TODO]
+
+```
+Category:     DevOps
+Description:  Create Docker and docker-compose configuration for local
+              development.
+
+Steps to Verify:
+  - docker-compose up starts all services (app, database)
+  - Application is accessible on configured port
+  - Database data persists across restarts
+
+
+```
+
+---
+
 ### Phase 2: Portfolio
 
 ---
@@ -1803,260 +1820,11 @@ Steps to Verify:
 
 ---
 
-### Phase 4: Polish & Launch
+### Phase 4: Testing & Documentation
 
 ---
 
-#### Task 4.1.1: Build Contact Page [TODO]
-
-```
-Category:     Contact & Inquiries
-Description:  Create /contact page with inquiry form.
-
-Steps to Verify:
-  - /contact page exists and renders
-  - Form includes: name, email, subject (optional), message
-  - Validation errors displayed inline
-  - Success message shown after submission
-  - Spam protection (honeypot field)
-
-
-```
-
----
-
-#### Task 4.1.2: Build Admin Inquiries Page [TODO]
-
-```
-Category:     Contact & Inquiries
-Description:  Create admin page for viewing and managing inquiries.
-
-Steps to Verify:
-  - /admin/inquiries page exists
-  - Lists all inquiries (newest first)
-  - Shows: name, email, subject, status, date
-  - Filter by status (new/read/replied)
-  - Click to view full message
-
-
-```
-
----
-
-#### Task 4.2.1: Build Home Page [TODO]
-
-```
-Category:     Static Pages
-Description:  Create homepage with featured artwork and products.
-
-Steps to Verify:
-  - / (home) page exists and renders
-  - Hero section with featured image and tagline
-  - "Selected Work" section with featured artwork
-  - "From the Shop" section with featured products
-  - Links to /work and /shop
-
-
-```
-
----
-
-#### Task 4.2.2: Build About Page [TODO]
-
-```
-Category:     Static Pages
-Description:  Create /about page with artist bio and statement.
-
-Steps to Verify:
-  - /about page exists and renders
-  - Content pulled from SiteConfig
-  - Styled per DESIGN.md
-  - Decorative elements from glyph library
-
-
-```
-
----
-
-#### Task 4.3.1: Configure SEO Metadata [TODO]
-
-```
-Category:     SEO & Metadata
-Description:  Set up Next.js metadata for all pages.
-
-Steps to Verify:
-  - Each page has unique title and description
-  - Title format: "Page Name | maura maura studio"
-  - OpenGraph and Twitter card tags set
-  - Artwork/product pages use appropriate images
-
-
-```
-
----
-
-#### Task 4.3.2: Generate Sitemap [TODO]
-
-```
-Category:     SEO & Metadata
-Description:  Create dynamic sitemap.xml for search engines.
-
-Steps to Verify:
-  - /sitemap.xml route exists
-  - Includes all public pages
-  - Includes all artwork and product slugs
-  - Updates automatically with new content
-
-
-```
-
----
-
-#### Task 4.4.1: Optimize Performance [TODO]
-
-```
-Category:     Performance Optimization
-Description:  Implement performance optimizations for fast loading.
-
-Steps to Verify:
-  - Images lazy-loaded below fold
-  - Blur placeholders for images
-  - Bundle size optimized
-  - Lighthouse performance score > 90 (desktop)
-
-
-```
-
----
-
-#### Task 4.5.1: Set Up Analytics [TODO]
-
-```
-Category:     Analytics & Monitoring
-Description:  Configure privacy-friendly analytics.
-
-Steps to Verify:
-  - Analytics provider configured (Plausible, Fathom, or GA)
-  - Page views tracked correctly
-  - Dashboard accessible
-
-
-```
-
----
-
-#### Task 4.5.2: Configure Error Tracking [TODO]
-
-```
-Category:     Analytics & Monitoring
-Description:  Set up error monitoring with Sentry or similar.
-
-Steps to Verify:
-  - Sentry (or alternative) configured
-  - Errors in production captured
-  - Alert notifications configured
-
-
-```
-
----
-
-#### Task 4.6.1: Test Mobile & Accessibility [TODO]
-
-```
-Category:     Mobile & Accessibility
-Description:  Ensure site works well on mobile and is accessible.
-
-Steps to Verify:
-  - Tested on iPhone and Android
-  - No horizontal scroll
-  - All interactive elements keyboard accessible
-  - Color contrast meets WCAG AA
-  - Skip-to-content link present
-
-
-```
-
----
-
-#### Task 4.7.1: Configure DreamHost VPS [TODO]
-
-```
-Category:     Deployment & Launch
-Description:  Set up DreamHost VPS with Node.js and Passenger.
-
-Steps to Verify:
-  - VPS provisioned with sufficient resources
-  - nvm installed and Node.js 20+ LTS installed
-  - Passenger configured in DreamHost panel
-  - Application directory created
-
-
-```
-
----
-
-#### Task 4.7.2: Set Up Production Database [TODO]
-
-```
-Category:     Deployment & Launch
-Description:  Configure PostgreSQL for production.
-
-Steps to Verify:
-  - PostgreSQL configured (VPS or managed service)
-  - Production database created
-  - DATABASE_URL configured for production
-  - Migrations run successfully
-
-
-```
-
----
-
-#### Task 4.7.3: Configure SSL and Domain [TODO]
-
-```
-Category:     Deployment & Launch
-Description:  Set up SSL certificate and connect domain.
-
-Steps to Verify:
-  - SSL certificate obtained (Let's Encrypt)
-  - HTTPS enforced
-  - Domain DNS configured
-  - Site accessible via domain name
-
-
-```
-
----
-
-#### Task 4.7.4: Final QA and Launch [TODO]
-
-```
-Category:     Deployment & Launch
-Description:  Comprehensive testing and go live.
-
-Steps to Verify:
-  - All pages load correctly
-  - Admin login works
-  - Cart and checkout flow works (test purchase)
-  - Stripe webhooks received
-  - Order created and emails sent
-  - Contact form works
-  - No console errors
-  - Site publicly accessible
-  - Celebrate! 🎉
-
-
-```
-
----
-
-### Phase 5: Testing & Documentation
-
----
-
-#### Task 5.1.1: Set Up Testing Framework [TODO]
+#### Task 4.1.1: Set Up Testing Framework [TODO]
 
 ```
 Category:     Testing Infrastructure
@@ -2075,7 +1843,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.1.2: Write API Unit Tests [TODO]
+#### Task 4.1.2: Write API Unit Tests [TODO]
 
 ```
 Category:     Backend Testing
@@ -2095,7 +1863,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.1.3: Write Admin API Tests [TODO]
+#### Task 4.1.3: Write Admin API Tests [TODO]
 
 ```
 Category:     Backend Testing
@@ -2115,7 +1883,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.1.4: Write Stripe Webhook Tests [TODO]
+#### Task 4.1.4: Write Stripe Webhook Tests [TODO]
 
 ```
 Category:     Backend Testing
@@ -2134,7 +1902,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.2.1: Write Component Unit Tests [TODO]
+#### Task 4.2.1: Write Component Unit Tests [TODO]
 
 ```
 Category:     Frontend Testing
@@ -2154,7 +1922,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.2.2: Write Page Component Tests [TODO]
+#### Task 4.2.2: Write Page Component Tests [TODO]
 
 ```
 Category:     Frontend Testing
@@ -2173,7 +1941,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.3.1: Write E2E Tests - Public Flow [TODO]
+#### Task 4.3.1: Write E2E Tests - Public Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -2193,7 +1961,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.3.2: Write E2E Tests - Checkout Flow [TODO]
+#### Task 4.3.2: Write E2E Tests - Checkout Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -2212,7 +1980,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.3.3: Write E2E Tests - Admin Flow [TODO]
+#### Task 4.3.3: Write E2E Tests - Admin Flow [TODO]
 
 ```
 Category:     End-to-End Testing
@@ -2232,7 +2000,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.4.1: Create API Documentation [TODO]
+#### Task 4.4.1: Create API Documentation [TODO]
 
 ```
 Category:     Documentation
@@ -2250,7 +2018,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.4.2: Create Deployment Guide [TODO]
+#### Task 4.4.2: Create Deployment Guide [TODO]
 
 ```
 Category:     Documentation
@@ -2269,7 +2037,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.4.3: Create Admin User Guide [TODO]
+#### Task 4.4.3: Create Admin User Guide [TODO]
 
 ```
 Category:     Documentation
@@ -2288,7 +2056,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.4.4: Write README [TODO]
+#### Task 4.4.4: Write README [TODO]
 
 ```
 Category:     Documentation
@@ -2308,7 +2076,7 @@ Steps to Verify:
 
 ---
 
-#### Task 5.4.5: Document Future Enhancements [TODO]
+#### Task 4.4.5: Document Future Enhancements [TODO]
 
 ```
 Category:     Documentation
@@ -2319,6 +2087,255 @@ Steps to Verify:
   - Lists features not in v1 (e.g., customer accounts, wishlists)
   - Includes potential improvements
   - Prioritized or categorized
+
+
+```
+
+---
+
+### Phase 5: Polish & Launch
+
+---
+
+#### Task 5.1.1: Build Contact Page [TODO]
+
+```
+Category:     Contact & Inquiries
+Description:  Create /contact page with inquiry form.
+
+Steps to Verify:
+  - /contact page exists and renders
+  - Form includes: name, email, subject (optional), message
+  - Validation errors displayed inline
+  - Success message shown after submission
+  - Spam protection (honeypot field)
+
+
+```
+
+---
+
+#### Task 5.1.2: Build Admin Inquiries Page [TODO]
+
+```
+Category:     Contact & Inquiries
+Description:  Create admin page for viewing and managing inquiries.
+
+Steps to Verify:
+  - /admin/inquiries page exists
+  - Lists all inquiries (newest first)
+  - Shows: name, email, subject, status, date
+  - Filter by status (new/read/replied)
+  - Click to view full message
+
+
+```
+
+---
+
+#### Task 5.2.1: Build Home Page [TODO]
+
+```
+Category:     Static Pages
+Description:  Create homepage with featured artwork and products.
+
+Steps to Verify:
+  - / (home) page exists and renders
+  - Hero section with featured image and tagline
+  - "Selected Work" section with featured artwork
+  - "From the Shop" section with featured products
+  - Links to /work and /shop
+
+
+```
+
+---
+
+#### Task 5.2.2: Build About Page [TODO]
+
+```
+Category:     Static Pages
+Description:  Create /about page with artist bio and statement.
+
+Steps to Verify:
+  - /about page exists and renders
+  - Content pulled from SiteConfig
+  - Styled per DESIGN.md
+  - Decorative elements from glyph library
+
+
+```
+
+---
+
+#### Task 5.3.1: Configure SEO Metadata [TODO]
+
+```
+Category:     SEO & Metadata
+Description:  Set up Next.js metadata for all pages.
+
+Steps to Verify:
+  - Each page has unique title and description
+  - Title format: "Page Name | maura maura studio"
+  - OpenGraph and Twitter card tags set
+  - Artwork/product pages use appropriate images
+
+
+```
+
+---
+
+#### Task 5.3.2: Generate Sitemap [TODO]
+
+```
+Category:     SEO & Metadata
+Description:  Create dynamic sitemap.xml for search engines.
+
+Steps to Verify:
+  - /sitemap.xml route exists
+  - Includes all public pages
+  - Includes all artwork and product slugs
+  - Updates automatically with new content
+
+
+```
+
+---
+
+#### Task 5.4.1: Optimize Performance [TODO]
+
+```
+Category:     Performance Optimization
+Description:  Implement performance optimizations for fast loading.
+
+Steps to Verify:
+  - Images lazy-loaded below fold
+  - Blur placeholders for images
+  - Bundle size optimized
+  - Lighthouse performance score > 90 (desktop)
+
+
+```
+
+---
+
+#### Task 5.5.1: Set Up Analytics [TODO]
+
+```
+Category:     Analytics & Monitoring
+Description:  Configure privacy-friendly analytics.
+
+Steps to Verify:
+  - Analytics provider configured (Plausible, Fathom, or GA)
+  - Page views tracked correctly
+  - Dashboard accessible
+
+
+```
+
+---
+
+#### Task 5.5.2: Configure Error Tracking [TODO]
+
+```
+Category:     Analytics & Monitoring
+Description:  Set up error monitoring with Sentry or similar.
+
+Steps to Verify:
+  - Sentry (or alternative) configured
+  - Errors in production captured
+  - Alert notifications configured
+
+
+```
+
+---
+
+#### Task 5.6.1: Test Mobile & Accessibility [TODO]
+
+```
+Category:     Mobile & Accessibility
+Description:  Ensure site works well on mobile and is accessible.
+
+Steps to Verify:
+  - Tested on iPhone and Android
+  - No horizontal scroll
+  - All interactive elements keyboard accessible
+  - Color contrast meets WCAG AA
+  - Skip-to-content link present
+
+
+```
+
+---
+
+#### Task 5.7.1: Configure DreamHost VPS [TODO]
+
+```
+Category:     Deployment & Launch
+Description:  Set up DreamHost VPS with Node.js and Passenger.
+
+Steps to Verify:
+  - VPS provisioned with sufficient resources
+  - nvm installed and Node.js 20+ LTS installed
+  - Passenger configured in DreamHost panel
+  - Application directory created
+
+
+```
+
+---
+
+#### Task 5.7.2: Set Up Production Database [TODO]
+
+```
+Category:     Deployment & Launch
+Description:  Configure PostgreSQL for production.
+
+Steps to Verify:
+  - PostgreSQL configured (VPS or managed service)
+  - Production database created
+  - DATABASE_URL configured for production
+  - Migrations run successfully
+
+
+```
+
+---
+
+#### Task 5.7.3: Configure SSL and Domain [TODO]
+
+```
+Category:     Deployment & Launch
+Description:  Set up SSL certificate and connect domain.
+
+Steps to Verify:
+  - SSL certificate obtained (Let's Encrypt)
+  - HTTPS enforced
+  - Domain DNS configured
+  - Site accessible via domain name
+
+
+```
+
+---
+
+#### Task 5.7.4: Final QA and Launch [TODO]
+
+```
+Category:     Deployment & Launch
+Description:  Comprehensive testing and go live.
+
+Steps to Verify:
+  - All pages load correctly
+  - Admin login works
+  - Cart and checkout flow works (test purchase)
+  - Stripe webhooks received
+  - Order created and emails sent
+  - Contact form works
+  - No console errors
+  - Site publicly accessible
+  - Celebrate! 🎉
 
 
 ```
