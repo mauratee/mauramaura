@@ -144,6 +144,19 @@ Info              #1E40AF     ██████  Informational messages
 FONT FAMILIES
 ─────────────────────────────────────────────────────────────
 
+Display/Logo      Blackletter/Gothic/Medieval style
+                  Use for: Site title "maura maura studio", hero headings
+
+                  Inspiration: https://fonts.google.com/?preview.text=maura%20maura%20studio&categoryFilters=Appearance:%2FTheme%2FMedieval
+
+                  Options:
+                  • Astloch — https://fonts.google.com/specimen/Astloch
+                  • Manufacturing Consent — https://fonts.google.com/specimen/Manufacturing+Consent
+                  • UnifrakturMaguntia — https://fonts.google.com/specimen/UnifrakturMaguntia
+                  • Jacquard 12 — https://fonts.google.com/specimen/Jacquard+12
+                  • Jacquard 24 — https://fonts.google.com/specimen/Jacquard+24
+                  • Metamorphous — https://fonts.google.com/specimen/Metamorphous
+
 Headings          Inter or DM Sans
                   Weight: 500 (medium), 600 (semibold)
                   Letter-spacing: -0.02em
@@ -174,6 +187,24 @@ RESPONSIVE SCALING
 Desktop (1280px+)    Base scale as above
 Tablet (768-1279px)  Reduce headings by ~15%
 Mobile (<768px)      Reduce headings by ~25%, body stays 16px
+
+
+ICONS (Material Symbols Outlined)
+─────────────────────────────────────────────────────────────
+
+Icon Set          Material Symbols Outlined (Google Fonts)
+                  https://fonts.google.com/icons
+                  Settings: FILL@0, wght@400, GRAD@0, opsz@24
+
+Menu              menu (hamburger)
+
+Search            search
+                  https://fonts.google.com/icons?selected=Material+Symbols+Outlined:search
+
+Cart              work (briefcase/bag icon)
+                  https://fonts.google.com/icons?selected=Material+Symbols+Outlined:work
+
+Close             close
 ```
 
 ### 3.3 Spacing System
