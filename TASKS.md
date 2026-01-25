@@ -53,10 +53,14 @@ Steps to Verify:
   - Colors defined: background (#FAFAF9), surface (#F5F5F4), border (#E7E5E4)
   - Text colors defined (both warm neutral and midnight blue options)
   - Spacing scale matches DESIGN.md (4, 8, 16, 24, 32, 48, 64, 96, 128px)
-  - Font families configured (Inter/DM Sans)
+  - Font families configured (Archivo as primary, Inter as fallback)
   - globals.css imports Tailwind directives
   - Test component renders with custom colors correctly
 
+Notes:
+  - Body/heading font changed from Inter to Archivo (Jan 2026)
+  - Archivo: grotesque sans-serif with late 19th-century American character
+  - Font weights: 400, 500, 600, 700
 
 ```
 
@@ -1467,14 +1471,18 @@ Design References:
 
 Components to Build:
 
-  Description Bar:
+  Description Bar [IMPLEMENTED]:
     - Full-width strip below header
-    - Decorative floral/glyph border on LEFT side
-    - Centered description text (e.g., "images and objects curated for you")
-    - Decorative floral/glyph border on RIGHT side
-    - Text color: text-secondary (#64748B)
-    - Glyph color: text-secondary (#64748B)
-    - Use glyphs from DESIGN.md: ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔ ꧁⎝ 𓆩༺✧༻𓆪 ⎠꧂ ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
+    - Decorative glyphs inline with centered text
+    - Text: "images and objects curated for you"
+    - Glyphs: ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔ (opacity-60)
+    - Styling:
+      - Font size: text-xs (12px)
+      - Padding: px-2 lg:px-4 py-3
+      - Width: w-full lg:w-1/2 (constrained on large screens)
+      - Spacing: mx-3 margin between text and glyphs
+      - Border: border-b border-text-secondary
+    - Text color: text-primary (#0F172A)
 
   Masonry Grid:
     - Mixed image sizes in symmetric layout:

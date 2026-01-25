@@ -81,28 +81,21 @@ const gridItems = [
 
 function DescriptionBar() {
   return (
-    <div className="py-2 md:py-3 border-b border-text-secondary">
-      <div className="flex items-center justify-center gap-4 px-6 text-text-primary font-normal">
-        {/* Left decorative glyph */}
-        <span
-          className="hidden sm:inline text-sm md:text-base opacity-60 whitespace-nowrap"
-          aria-hidden="true"
-        >
-          ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
-        </span>
-
-        {/* Description text */}
-        <span className="text-sm md:text-base text-center">
-          images and objects curated for you
-        </span>
-
-        {/* Right decorative glyph */}
-        <span
-          className="hidden sm:inline text-sm md:text-base opacity-60 whitespace-nowrap"
-          aria-hidden="true"
-        >
-          ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
-        </span>
+    <div className="border-b border-text-secondary overflow-hidden">
+      <div className="px-2 lg:px-4 py-3">
+        <div className="flex text-xs text-center justify-center">
+          <div className="w-full lg:w-1/2">
+            <p className="text-text-primary">
+              <span className="opacity-60" aria-hidden="true">
+                ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
+              </span>
+              <span className="mx-3">images and objects curated for you</span>
+              <span className="opacity-60" aria-hidden="true">
+                ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
+              </span>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

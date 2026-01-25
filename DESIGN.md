@@ -161,8 +161,18 @@ Headings          Inter or DM Sans
                   Weight: 500 (medium), 600 (semibold)
                   Letter-spacing: -0.02em
 
-Body              Inter or Source Sans 3
-                  Weight: 400 (regular), 500 (medium)
+Body              Options (in order of preference):
+                  1. Archivo — https://fonts.google.com/specimen/Archivo
+                     Grotesque sans-serif with late 19th-century American feel
+                     Weight: 400 (regular), 500 (medium)
+                     Good for: Body text with subtle character
+                  2. Vend Sans — https://fonts.google.com/specimen/Vend+Sans
+                     Modern sans-serif combining warmth with geometric clarity
+                     Designed by Baptiste Guesnon (Bloom Type Foundry)
+                     Weight: 400 (regular), 500 (medium)
+                     Good for: Approachable, readable body text
+                  3. Inter or Source Sans 3 (fallback)
+                     Weight: 400 (regular), 500 (medium)
                   Line-height: 1.6
 
 Monospace         JetBrains Mono or IBM Plex Mono
@@ -270,6 +280,30 @@ Icons (Custom SVG - not Material Symbols):
 Icon Spacing:     gap-1 (4px) between search and cart
 Icon Color:       text-primary (#0F172A)
 Hover:            text-accent (#1E3A5F)
+
+
+DESCRIPTION BAR (Implemented)
+─────────────────────────────────────────────────────────────
+
+Layout:           Full-width strip below header with centered content
+
+Text:             "images and objects curated for you"
+Font:             Archivo (--font-sans)
+Size:             text-xs (12px)
+Color:            text-primary (#0F172A)
+
+Decorative Glyphs:
+  Pattern:        ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
+  Position:       Inline, flanking the description text
+  Opacity:        60%
+  Spacing:        mx-3 (12px) between glyphs and text
+
+Container:
+  Padding:        px-2 lg:px-4 (8-16px horizontal)
+  Padding:        py-3 (12px vertical)
+  Width:          w-full lg:w-1/2 (full on mobile, half on large screens)
+  Border:         border-b border-text-secondary (#64748B)
+  Overflow:       hidden
 
 
 BUTTONS

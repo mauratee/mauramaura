@@ -40,9 +40,10 @@ A personal website to showcase visual art and illustration work, with integrated
 **Scope:**
 - Static landing page matching wireframe layout:
   - Header with logo, navigation icons
-  - Description bar with decorative glyph borders
+  - Description bar with decorative glyph borders (text-xs, `px-2 lg:px-4 py-3` padding, `w-full lg:w-1/2` on large screens)
   - Masonry grid of artwork/product images (placeholder images for MVP)
 - Design system implemented (colors, typography, spacing from DESIGN.md)
+- Body/heading font: Archivo (grotesque sans-serif)
 - Deployed to DreamHost and accessible via domain
 
 **Header Specifications (Implemented):**
