@@ -316,7 +316,7 @@ Notes:
 
 ---
 
-### Task 1.4.2: Build Responsive Navigation [FINISHED]
+### Task 1.4.2: Build Responsive Navigation [IN_PROGRESS]
 
 ```
 Category:     Layout & Navigation
@@ -1528,6 +1528,8 @@ Steps to Verify:
   - [x] Items without labels still show border at image edge
   - [x] Responsive on mobile, tablet, desktop
   - [ ] Footer component (TODO)
+  - [ ] Hamburger pop out menu (TODO)
+  - [ ] Refine header further (TODO)
 
 Notes:
   - Grid uses useState + onLoad for dynamic border positioning
