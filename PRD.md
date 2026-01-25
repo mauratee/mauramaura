@@ -35,8 +35,13 @@ A personal website to showcase visual art and illustration work, with integrated
 
 **Goal:** Deploy a draft landing page to the web with core visual design applied
 
+**Wireframe:** [design/main-01-24-2026.png](./design/main-01-24-2026.png)
+
 **Scope:**
-- Static landing page with hero, about, and contact sections
+- Static landing page matching wireframe layout:
+  - Header with logo, navigation icons
+  - Description bar with decorative glyph borders
+  - Masonry grid of artwork/product images (placeholder images for MVP)
 - Design system implemented (colors, typography, spacing from DESIGN.md)
 - Deployed to DreamHost and accessible via domain
 
@@ -45,6 +50,7 @@ A personal website to showcase visual art and illustration work, with integrated
 - E-commerce shop and checkout
 - Admin dashboard
 - Database and authentication
+- About and Contact pages
 
 **Related tasks:** Phase 1 (Foundation), Phase 2 (Portfolio - landing page components)
 
@@ -845,7 +851,7 @@ Update site settings.
 ## 8. Pages
 
 **Public:**
-- `/` - Home with featured work and intro
+- `/` - Home with description bar and masonry grid (see wireframe)
 - `/work` - Portfolio gallery with category filtering
 - `/work/[slug]` - Individual artwork page
 - `/shop` - Product listings

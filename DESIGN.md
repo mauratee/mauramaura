@@ -149,13 +149,13 @@ Display/Logo      Blackletter/Gothic/Medieval style
 
                   Inspiration: https://fonts.google.com/?preview.text=maura%20maura%20studio&categoryFilters=Appearance:%2FTheme%2FMedieval
 
-                  Options:
-                  • Astloch — https://fonts.google.com/specimen/Astloch
-                  • Manufacturing Consent — https://fonts.google.com/specimen/Manufacturing+Consent
-                  • UnifrakturMaguntia — https://fonts.google.com/specimen/UnifrakturMaguntia
-                  • Jacquard 12 — https://fonts.google.com/specimen/Jacquard+12
-                  • Jacquard 24 — https://fonts.google.com/specimen/Jacquard+24
-                  • Metamorphous — https://fonts.google.com/specimen/Metamorphous
+                  Options (in order of preference):
+                  1. Astloch — https://fonts.google.com/specimen/Astloch
+                  2. Manufacturing Consent — https://fonts.google.com/specimen/Manufacturing+Consent
+                  3. UnifrakturMaguntia — https://fonts.google.com/specimen/UnifrakturMaguntia
+                  4. Jacquard 12 — https://fonts.google.com/specimen/Jacquard+12
+                  5. Jacquard 24 — https://fonts.google.com/specimen/Jacquard+24
+                  6. Metamorphous — https://fonts.google.com/specimen/Metamorphous
 
 Headings          Inter or DM Sans
                   Weight: 500 (medium), 600 (semibold)

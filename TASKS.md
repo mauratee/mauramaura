@@ -291,7 +291,7 @@ Steps to Verify:
 
 ---
 
-### Task 1.4.1: Create Public Layout [TODO]
+### Task 1.4.1: Create Public Layout [IN_PROGRESS]
 
 ```
 Category:     Layout & Navigation
@@ -305,25 +305,78 @@ Steps to Verify:
   - Layout applies to all public routes
   - Responsive on mobile, tablet, desktop
 
+Notes:
+  - Initial components created, needs refinement to match wireframe
 
 ```
 
 ---
 
-### Task 1.4.2: Build Responsive Navigation [TODO]
+### Task 1.4.2: Build Responsive Navigation [IN_PROGRESS]
 
 ```
 Category:     Layout & Navigation
-Description:  Build responsive navigation with desktop menu and mobile
-              hamburger.
+Description:  Build header/navigation matching wireframe design.
+
+Wireframe:    design/main-01-24-2026.png
+              IMPORTANT: Verify header layout against wireframe before
+              marking complete.
+
+Header Layout (left to right):
+  - LEFT:   Hamburger menu icon (☰)
+  - CENTER: "maura maura studio" in display font (Astloch)
+  - RIGHT:  Search icon (🔍) + Cart/bag icon (🛒)
+
+Specifications:
+
+  Colors:
+    - See DESIGN.md Section 3.1 Color Palette
+    - Use Primary Palette with Text/Accent Option B (Midnight Blue):
+      - Text Primary: #0F172A (very dark navy)
+      - Text Secondary: #64748B (slate gray)
+      - Accent: #1E3A5F (deep blue)
+      - Background: #FAFAF9
+      - Border: #E7E5E4
+
+  Hamburger Menu (left):
+    - Always visible (mobile AND desktop per wireframe)
+    - Use Material Symbols: "menu"
+    - Opens slide-out or overlay menu with:
+      - Shop
+      - About
+      - Contact
+    - Close icon (✕) when menu is open
+
+  Logo/Brand (center):
+    - Text: "maura maura studio"
+    - Font: Astloch (display font #1) - see DESIGN.md Section 3.2
+    - Size: use Hero Title scale (48-64px) - see DESIGN.md Type Scale
+    - Color: text-primary (#0F172A)
+    - Centered horizontally in header
+    - Links to homepage
+
+  Icons (right):
+    - Search icon: Material Symbols "search"
+    - Cart icon: Material Symbols "shopping_bag" or "work"
+    - Icon color: text-primary (#0F172A)
+    - Icons spaced evenly
+    - Cart shows item count badge when items in cart (future)
+    - See DESIGN.md Section 3.2 for icon specs
+
+  Styling:
+    - Sticky header (stays at top on scroll)
+    - Background: #FAFAF9 with subtle border-bottom (#E7E5E4)
+    - Height: ~64px mobile, ~80px desktop
+    - Horizontal padding: 24px mobile, 32px+ desktop
 
 Steps to Verify:
-  - Desktop: horizontal navigation links visible
-  - Mobile: hamburger icon visible, opens slide-out menu
-  - Navigation includes: Work, Shop, About, Contact
-  - Cart icon with item count visible (shop pages)
-  - Active page highlighted in navigation
-
+  - [ ] Header matches wireframe layout exactly
+  - [ ] Hamburger icon on LEFT
+  - [ ] Logo centered in display font
+  - [ ] Search + cart icons on RIGHT
+  - [ ] Menu opens/closes correctly
+  - [ ] Header is sticky on scroll
+  - [ ] Responsive sizing
 
 ```
 
@@ -347,7 +400,7 @@ Steps to Verify:
 
 ---
 
-### Task 1.4.4: Create Base UI Components [TODO]
+### Task 1.4.4: Create Base UI Components [IN_PROGRESS]
 
 ```
 Category:     Layout & Navigation
@@ -361,6 +414,9 @@ Steps to Verify:
   - All components styled per DESIGN.md
   - Components are accessible (proper ARIA attributes)
 
+Notes:
+  - Button, Input, Textarea components created
+  - Awaiting detailed specs for additional components
 
 ```
 
@@ -1399,19 +1455,67 @@ Steps to Verify:
 
 ---
 
-### Task 5.2.1: Build Home Page [TODO]
+### Task 5.2.1: Build Home Page [IN_PROGRESS]
 
 ```
 Category:     Static Pages
-Description:  Create homepage with featured artwork and products.
+Description:  Create homepage matching the wireframe design.
+
+Wireframe:    design/main-01-24-2026.png
+              IMPORTANT: Verify all components against this wireframe before
+              marking complete.
+
+Layout Structure (top to bottom):
+  1. Header (see Task 1.4.2 for details)
+  2. Description Bar - decorative strip with tagline
+  3. Masonry Grid - mixed artwork/product images
+  4. Footer
+
+Design References:
+  - Colors: DESIGN.md Section 3.1 - use Primary Palette with Text/Accent Option B (Midnight Blue)
+  - Typography: DESIGN.md Section 3.2 - see Type Scale for sizing
+  - Glyphs: DESIGN.md Section 2 - Decorative Glyphs & Accents
+
+Components to Build:
+
+  Description Bar:
+    - Full-width strip below header
+    - Decorative floral/glyph border on LEFT side
+    - Centered description text (e.g., "images and objects curated for you")
+    - Decorative floral/glyph border on RIGHT side
+    - Text color: text-secondary (#64748B)
+    - Glyph color: text-secondary (#64748B)
+    - Use glyphs from DESIGN.md: ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔ ꧁⎝ 𓆩༺✧༻𓆪 ⎠꧂ ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
+
+  Masonry Grid:
+    - Mixed image sizes in symmetric layout:
+      - Tall images (aspect ~2:3 or 3:4)
+      - Square images (1:1)
+      - Wide images (3:2 or 16:9)
+    - uniform grid - each row of images should be the same height and evenly spaced across the row
+    - labels can act as filler for different image aspect ratios
+    - Some items show labels, some don't:
+      - "ITEM NAME" in caps, text-primary (#0F172A), Card Title size (18-20px)
+      - "PRICE" below name, text-secondary (#64748B)
+    - Hover state: subtle scale or shadow
+    - Responsive: fewer columns on mobile
+
+  Grid Columns (approximate):
+    - Desktop (1024px+): 4 columns
+    - Tablet (640-1023px): 3 columns
+    - Mobile (<640px): 2 columns
 
 Steps to Verify:
-  - / (home) page exists and renders
-  - Hero section with featured image and tagline
-  - "Selected Work" section with featured artwork
-  - "From the Shop" section with featured products
-  - Links to /work and /shop
+  - [ ] Page matches wireframe layout (not a traditional sectioned page)
+  - [ ] Description bar has decorative borders + centered text
+  - [ ] Masonry grid displays with mixed image sizes
+  - [ ] Item labels (name/price) appear on some grid items
+  - [ ] Responsive on mobile, tablet, desktop
+  - [ ] No separate Hero/About/Contact sections on homepage
 
+Notes:
+  - For MVP, grid items can use placeholder images
+  - About and Contact will be separate pages, not homepage sections
 
 ```
 
