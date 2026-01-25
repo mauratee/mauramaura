@@ -9,14 +9,48 @@ const menuLinks = [
   { href: "/contact", label: "Contact" },
 ];
 
+// Custom SVG icons to match reference design
+function MenuIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path fillRule="evenodd" d="M23 16v2H1v-2h22zm0-10v2H1V6h22z" />
+    </svg>
+  );
+}
+
+function SearchIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      role="presentation"
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path
+        fillRule="evenodd"
+        d="M10.533 17.438a6.968 6.968 0 01-6.96-6.96 6.968 6.968 0 016.96-6.96 6.968 6.968 0 016.96 6.96 6.968 6.968 0 01-6.96 6.96zm6.949-1.314a8.917 8.917 0 002.01-5.646c0-4.941-4.02-8.96-8.96-8.96-4.94 0-8.96 4.019-8.96 8.96 0 4.94 4.02 8.96 8.96 8.96 2.082 0 3.996-.72 5.52-1.916l4.962 4.96 1.415-1.413-4.947-4.945z"
+      />
+    </svg>
+  );
+}
+
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-background border-b border-border">
-        <div className="px-6 md:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+      <header className="sticky top-0 z-50 bg-background border-b border-text-secondary">
+        <div className="px-4 md:px-6">
+          <div className="flex items-center justify-between h-14 md:h-16">
             {/* Left: Hamburger menu button (always visible per wireframe) */}
             <button
               type="button"
@@ -25,9 +59,11 @@ export function Header() {
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
-              <span className="material-symbols-outlined">
-                {isMenuOpen ? "close" : "menu"}
-              </span>
+              {isMenuOpen ? (
+                <span className="material-symbols-outlined">close</span>
+              ) : (
+                <MenuIcon className="w-6 h-6" />
+              )}
             </button>
 
             {/* Center: Logo / Brand */}
@@ -37,7 +73,7 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               <span
-                className="text-3xl md:text-4xl lg:text-5xl text-text-primary hover:text-accent transition-colors whitespace-nowrap"
+                className="text-3xl md:text-4xl font-bold text-text-primary hover:text-accent transition-colors whitespace-nowrap"
                 style={{ fontFamily: "var(--font-display)" }}
               >
                 maura maura studio
@@ -45,13 +81,13 @@ export function Header() {
             </Link>
 
             {/* Right: Search + Cart icons */}
-            <div className="flex items-center gap-2 md:gap-4">
+            <div className="flex items-center gap-1">
               <button
                 type="button"
                 className="p-2 text-text-primary hover:text-accent transition-colors"
                 aria-label="Search"
               >
-                <span className="material-symbols-outlined">search</span>
+                <SearchIcon className="w-5 h-5" />
               </button>
               <Link
                 href="/cart"
@@ -83,7 +119,7 @@ export function Header() {
       >
         <div className="flex flex-col h-full">
           {/* Menu header with close button */}
-          <div className="flex items-center justify-between h-16 md:h-20 px-6 border-b border-border">
+          <div className="flex items-center justify-between h-14 md:h-16 px-4 border-b border-border">
             <span className="text-lg font-medium text-text-primary">Menu</span>
             <button
               type="button"

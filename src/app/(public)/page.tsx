@@ -1,18 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
-// Placeholder colors for visual variety (until real images are added)
-const placeholderColors = [
-  "bg-stone-200",
-  "bg-slate-200",
-  "bg-zinc-300",
-  "bg-neutral-200",
-  "bg-stone-300",
-  "bg-slate-300",
-];
-
-// Placeholder data - will be replaced with database content
+// Grid items with actual images from /public/images/
 const gridItems = [
   {
     id: 1,
@@ -21,7 +12,7 @@ const gridItems = [
     href: "/shop/item-1",
     aspect: "tall",
     showLabel: true,
-    colorIndex: 0,
+    image: "/images/img_0410-ed.jpg",
   },
   {
     id: 2,
@@ -30,7 +21,7 @@ const gridItems = [
     href: "/shop/item-2",
     aspect: "standard",
     showLabel: true,
-    colorIndex: 1,
+    image: "/images/P_20240226_154917.jpeg",
   },
   {
     id: 3,
@@ -39,7 +30,7 @@ const gridItems = [
     href: "/work/item-3",
     aspect: "standard",
     showLabel: false,
-    colorIndex: 2,
+    image: "/images/P_20240407_142229.jpg",
   },
   {
     id: 4,
@@ -48,7 +39,7 @@ const gridItems = [
     href: "/shop/item-4",
     aspect: "standard",
     showLabel: true,
-    colorIndex: 3,
+    image: "/images/Screenshot_2026-01-24.png",
   },
   {
     id: 5,
@@ -57,7 +48,7 @@ const gridItems = [
     href: "/work/item-5",
     aspect: "tall",
     showLabel: false,
-    colorIndex: 4,
+    image: "/images/P_20230906_103916.jpg",
   },
   {
     id: 6,
@@ -66,7 +57,7 @@ const gridItems = [
     href: "/work/item-6",
     aspect: "standard",
     showLabel: false,
-    colorIndex: 1,
+    image: "/images/P_20260104_160826.jpg",
   },
   {
     id: 7,
@@ -75,7 +66,7 @@ const gridItems = [
     href: "/work/item-7",
     aspect: "standard",
     showLabel: false,
-    colorIndex: 5,
+    image: "/images/P_20260107_092430_1.jpg",
   },
   {
     id: 8,
@@ -84,14 +75,14 @@ const gridItems = [
     href: "/work/item-8",
     aspect: "wide",
     showLabel: false,
-    colorIndex: 2,
+    image: "/images/P_20240226_154917.jpeg",
   },
 ];
 
 function DescriptionBar() {
   return (
-    <div className="py-4 md:py-6 border-b border-border">
-      <div className="flex items-center justify-center gap-4 px-6 text-text-secondary">
+    <div className="py-2 md:py-3 border-b border-text-secondary">
+      <div className="flex items-center justify-center gap-4 px-6 text-text-primary font-normal">
         {/* Left decorative glyph */}
         <span
           className="hidden sm:inline text-sm md:text-base opacity-60 whitespace-nowrap"
@@ -124,23 +115,20 @@ function GridItem({ item }: { item: (typeof gridItems)[0] }) {
     wide: "col-span-2 row-span-1",
   };
 
-  const colorClass = placeholderColors[item.colorIndex] || placeholderColors[0];
-
   return (
     <Link
       href={item.href}
       className={`group flex flex-col ${gridClasses[item.aspect as keyof typeof gridClasses] || ""}`}
     >
       {/* Image container */}
-      <div
-        className={`relative flex-1 ${colorClass} overflow-hidden transition-transform duration-200 group-hover:scale-[1.02]`}
-      >
-        {/* Placeholder - will be replaced with actual images */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="material-symbols-outlined text-4xl text-black/10">
-            image
-          </span>
-        </div>
+      <div className="relative flex-1 overflow-hidden bg-stone-100">
+        <Image
+          src={item.image}
+          alt={item.title || "Gallery image"}
+          fill
+          className="object-cover transition-transform duration-200 group-hover:scale-[1.02]"
+          sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+        />
       </div>
 
       {/* Label - positioned below image per wireframe */}

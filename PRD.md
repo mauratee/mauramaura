@@ -45,6 +45,15 @@ A personal website to showcase visual art and illustration work, with integrated
 - Design system implemented (colors, typography, spacing from DESIGN.md)
 - Deployed to DreamHost and accessible via domain
 
+**Header Specifications (Implemented):**
+- Logo: "maura maura studio" in Astloch font, text-3xl md:text-4xl, font-bold
+- Height: h-14 md:h-16 (56-64px)
+- Padding: px-4 md:px-6 (16-24px horizontal)
+- Border: border-text-secondary (#64748B)
+- Icons: Custom SVG menu (2-line) and search icons, Material Symbols cart
+- Icon spacing: gap-1 (4px)
+- Sticky positioning with bg-background (#FAFAF9)
+
 **Deferred for later milestones:**
 - Portfolio gallery with CMS
 - E-commerce shop and checkout

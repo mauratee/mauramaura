@@ -235,6 +235,43 @@ Mobile            24px
 ### 3.4 Components
 
 ```
+HEADER (Implemented)
+─────────────────────────────────────────────────────────────
+
+Layout:           LEFT: Menu icon | CENTER: Logo | RIGHT: Search + Cart icons
+
+Logo:
+  Text:           "maura maura studio"
+  Font:           Astloch (--font-display)
+  Size:           text-3xl md:text-4xl (30-36px)
+  Weight:         font-bold (700)
+  Color:          text-primary (#0F172A)
+
+Height:           h-14 md:h-16 (56-64px)
+Padding:          px-4 md:px-6 (16-24px horizontal)
+Border:           border-b border-text-secondary (#64748B)
+Background:       bg-background (#FAFAF9)
+Position:         sticky top-0
+
+Icons (Custom SVG - not Material Symbols):
+
+  Menu Icon:      Two horizontal lines (hamburger variant)
+                  viewBox="0 0 24 24"
+                  Path: "M23 16v2H1v-2h22zm0-10v2H1V6h22z"
+                  Size: w-6 h-6
+
+  Search Icon:    Thin outline magnifying glass
+                  viewBox="0 0 24 24"
+                  Size: w-5 h-5
+
+  Cart Icon:      Material Symbols "work" (briefcase)
+                  Size: 24px (default)
+
+Icon Spacing:     gap-1 (4px) between search and cart
+Icon Color:       text-primary (#0F172A)
+Hover:            text-accent (#1E3A5F)
+
+
 BUTTONS
 ─────────────────────────────────────────────────────────────
 
