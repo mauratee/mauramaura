@@ -180,7 +180,7 @@ Steps to Verify:
 
 ---
 
-### Task 1.2.4: Create Seed Script [TODO]
+### Task 1.2.4: Create Seed Script [FINISHED]
 
 ```
 Category:     Database Setup
