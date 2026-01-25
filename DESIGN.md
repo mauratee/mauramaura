@@ -334,6 +334,47 @@ Product Card      Same as artwork card
                   Optional: "Sold" or "Low Stock" badge
 
 
+GRID ITEM (Homepage) - Implemented
+─────────────────────────────────────────────────────────────
+
+Container:
+  Layout:         flex flex-col
+  Border:         border-r-[1.25px] border-b-[1.25px] border-text-primary
+
+Image Container:
+  Aspect ratio:   aspect-[9/16]
+  Overflow:       hidden
+  Background:     bg-background
+
+Image:
+  Sizing:         fill (Next.js Image)
+  Object fit:     object-contain object-top
+  Note:           Images maintain natural aspect ratio, aligned to top
+
+Label (when item has title):
+  Position:       absolute, positioned at actual image edge
+  Calculation:    Uses onLoad to detect image natural dimensions
+                  Calculates where image content ends within container
+                  top: calculated %, bottom: 0 (extends to container bottom)
+  Border:         border-t-[1.25px] border-text-primary (at image edge)
+  Background:     bg-background
+  Padding:        px-3 py-2
+
+Border Line (when item has no title):
+  Same positioning as label, but only shows border and background fill
+
+Visual Hierarchy:
+  ┌─────────────────┐
+  │                 │
+  │     Image       │
+  │                 │
+  ├─────────────────┤  ← border at actual image edge
+  │  ITEM NAME      │
+  │  PRICE          │
+  │                 │  ← background fills to bottom
+  └─────────────────┘  ← container bottom border
+
+
 FORM INPUTS
 ─────────────────────────────────────────────────────────────
 
@@ -352,8 +393,11 @@ Select            Same styling as text input
 ASPECT RATIOS
 ─────────────────────────────────────────────────────────────
 
-Artwork Grid      4:5 or 1:1 (consistent within grid)
-Product Images    4:5 (portrait orientation)
+Homepage Grid     9:16 container with object-contain object-top
+                  Images maintain natural aspect ratio within container
+                  Border and label positioned at actual image edge
+Artwork Grid      1:1 (consistent squares)
+Product Images    1:1 (square, consistent with grid)
 Hero Images       16:9 or full-width responsive
 Thumbnails        1:1
 
@@ -373,7 +417,7 @@ Optimization      Cloudinary auto-quality or similar
 
 ### 4.1 Homepage
 
-**Wireframe file:** `design/main-01-24-2026.png`
+**Wireframe file:** `design/main-01-25-2026..png`
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -386,25 +430,23 @@ Optimization      Cloudinary auto-quality or similar
 │                                                             │
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
-│  ┌──────────────┐  ┌─────────┐  ┌─────────────────────────┐│
-│  │              │  │         │  │                         ││
-│  │              │  │         │  │                         ││
-│  │    image     │  │  image  │  │         image           ││
-│  │   (tall)     │  │         │  │        (wide)           ││
-│  │              │  ├─────────┤  │                         ││
-│  │              │  │         │  ├─────────────────────────┤│
-│  ├──────────────┤  │  image  │  │                         ││
-│  │  ITEM NAME   │  │         │  │         image           ││
-│  │  PRICE       │  └─────────┘  │                         ││
-│  └──────────────┘    ITEM NAME  └─────────────────────────┘│
-│                      PRICE        ITEM NAME                │
-│                                   PRICE                    │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐    │
+│  │          │  │          │  │          │  │          │    │
+│  │  image   │  │  image   │  │  image   │  │  image   │    │
+│  │  (9:16)  │  │  (9:16)  │  │  (9:16)  │  │  (9:16)  │    │
+│  │          │  ├──────────┤  ├──────────┤  ├──────────┤    │
+│  │          │  │ITEM NAME │  │ITEM NAME │  │ITEM NAME │    │
+│  │          │  │PRICE     │  │PRICE     │  │PRICE     │    │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘    │
 │                                                             │
-│  ┌─────────────────────────────────────────────────────────┐│
-│  │                                                         ││
-│  │                      image (wide)                       ││
-│  │                                                         ││
-│  └─────────────────────────────────────────────────────────┘│
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐    │
+│  │          │  │          │  │          │  │          │    │
+│  │  image   │  │  image   │  │  image   │  │  image   │    │
+│  │  (9:16)  │  │  (9:16)  │  │  (9:16)  │  │  (9:16)  │    │
+│  ├──────────┤  ├──────────┤  │          │  ├──────────┤    │
+│  │ITEM NAME │  │ITEM NAME │  │          │  │ITEM NAME │    │
+│  │PRICE     │  │PRICE     │  │          │  │PRICE     │    │
+│  └──────────┘  └──────────┘  └──────────┘  └──────────┘    │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -412,8 +454,12 @@ Optimization      Cloudinary auto-quality or similar
 **Layout notes:**
 - **Header:** Hamburger menu left, centered brand name "maura maura studio", search + cart icons right
 - **Description bar:** Decorative floral border framing tagline/description text
-- **Product grid:** Masonry-style layout with mixed image sizes (portrait, landscape, square)
-- **Item labels:** "ITEM NAME" and "PRICE" displayed below images (not all items show labels)
+- **Product grid:** Grid with 9:16 aspect ratio containers
+- **Image display:** Images use `object-contain object-top` to maintain natural aspect ratio
+- **Dynamic border positioning:** Black border line positioned at actual image edge (calculated via onLoad)
+- **Item labels:** "ITEM NAME" and "PRICE" positioned below border, extending to container bottom
+- **Grid borders:** 1.25px borders on right and bottom of each cell
+- **Responsive:** 2 cols mobile, 3 cols tablet, 4 cols desktop
 - **No separate sections:** Work and shop items combined in a single unified grid
 
 ### 4.2 Work / Gallery Page

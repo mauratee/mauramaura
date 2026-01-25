@@ -35,16 +35,24 @@ A personal website to showcase visual art and illustration work, with integrated
 
 **Goal:** Deploy a draft landing page to the web with core visual design applied
 
-**Wireframe:** [design/main-01-24-2026.png](./design/main-01-24-2026.png)
+**Wireframe:** [design/main-01-25-2026..png](./design/main-01-25-2026..png)
 
 **Scope:**
 - Static landing page matching wireframe layout:
   - Header with logo, navigation icons
   - Description bar with decorative glyph borders (text-xs, `px-2 lg:px-4 py-3` padding, `w-full lg:w-1/2` on large screens)
-  - Masonry grid of artwork/product images (placeholder images for MVP)
+  - Product grid with 9:16 aspect ratio containers
 - Design system implemented (colors, typography, spacing from DESIGN.md)
 - Body/heading font: Archivo (grotesque sans-serif)
 - Deployed to DreamHost and accessible via domain
+
+**Grid Implementation (Jan 2026):**
+- Container: 9:16 aspect ratio with `object-contain object-top` images
+- Images maintain natural aspect ratio, aligned to top of container
+- Black border line positioned at actual image edge (dynamically calculated via onLoad)
+- Item labels (ITEM NAME / PRICE) positioned below border, extending to container bottom
+- Grid borders: 1.25px on right and bottom of each cell
+- Responsive: 2 cols mobile, 3 cols tablet, 4 cols desktop
 
 **Header Specifications (Implemented):**
 - Logo: "maura maura studio" in Astloch font, text-3xl md:text-4xl, font-bold

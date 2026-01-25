@@ -1454,14 +1454,14 @@ Steps to Verify:
 Category:     Static Pages
 Description:  Create homepage matching the wireframe design.
 
-Wireframe:    design/main-01-24-2026.png
+Wireframe:    design/main-01-25-2026..png
               IMPORTANT: Verify all components against this wireframe before
               marking complete.
 
 Layout Structure (top to bottom):
   1. Header (see Task 1.4.2 for details)
   2. Description Bar - decorative strip with tagline
-  3. Masonry Grid - mixed artwork/product images
+  3. Product Grid - 9:16 containers with dynamic border positioning
   4. Footer
 
 Design References:
@@ -1484,34 +1484,54 @@ Components to Build:
       - Border: border-b border-text-secondary
     - Text color: text-primary (#0F172A)
 
-  Masonry Grid:
-    - Mixed image sizes in symmetric layout:
-      - Tall images (aspect ~2:3 or 3:4)
-      - Square images (1:1)
-      - Wide images (3:2 or 16:9)
-    - uniform grid - each row of images should be the same height and evenly spaced across the row
-    - labels can act as filler for different image aspect ratios
-    - Some items show labels, some don't:
-      - "ITEM NAME" in caps, text-primary (#0F172A), Card Title size (18-20px)
-      - "PRICE" below name, text-secondary (#64748B)
-    - Hover state: subtle scale or shadow
-    - Responsive: fewer columns on mobile
+  Product Grid [IMPLEMENTED - Jan 2026]:
+    - Container: 9:16 aspect ratio cells
+    - Images: object-contain object-top (maintain natural aspect ratio, align to top)
+    - Dynamic border positioning:
+      - Uses onLoad to detect image natural dimensions
+      - Calculates where image content ends within container
+      - Black border line (1.25px) positioned at actual image edge
+    - Item labels (when present):
+      - Positioned below border line
+      - Extends from image edge to container bottom (top: calculated%, bottom: 0)
+      - "ITEM NAME" text-sm font-medium text-primary
+      - "PRICE" text-sm text-secondary
+      - Background: bg-background
+      - Padding: px-3 py-2
+    - Items without labels:
+      - Border line still shown at image edge
+      - Background fill extends to container bottom
+    - Grid borders: border-r-[1.25px] border-b-[1.25px] on each cell
+    - Grid container: border-l-[1.25px] on left edge
+    - Responsive columns:
+      - Desktop (1024px+): 4 columns
+      - Tablet (768-1023px): 3 columns
+      - Mobile (<768px): 2 columns
 
-  Grid Columns (approximate):
-    - Desktop (1024px+): 4 columns
-    - Tablet (640-1023px): 3 columns
-    - Mobile (<640px): 2 columns
+  Visual Hierarchy (per cell):
+    ┌─────────────────┐
+    │                 │
+    │     Image       │
+    │                 │
+    ├─────────────────┤  ← border at actual image edge
+    │  ITEM NAME      │
+    │  PRICE          │
+    │                 │  ← background fills to bottom
+    └─────────────────┘  ← container bottom border
 
 Steps to Verify:
-  - [ ] Page matches wireframe layout (not a traditional sectioned page)
-  - [ ] Description bar has decorative borders + centered text
-  - [ ] Masonry grid displays with mixed image sizes
-  - [ ] Item labels (name/price) appear on some grid items
-  - [ ] Responsive on mobile, tablet, desktop
-  - [ ] No separate Hero/About/Contact sections on homepage
+  - [x] Page matches wireframe layout
+  - [x] Description bar has decorative borders + centered text
+  - [x] Grid displays with 9:16 containers
+  - [x] Border line positioned at actual image edge (dynamic calculation)
+  - [x] Item labels positioned below border, extending to container bottom
+  - [x] Items without labels still show border at image edge
+  - [x] Responsive on mobile, tablet, desktop
+  - [ ] Footer component (TODO)
 
 Notes:
-  - For MVP, grid items can use placeholder images
+  - Grid uses useState + onLoad for dynamic border positioning
+  - Images maintain aspect ratio within 9:16 container
   - About and Contact will be separate pages, not homepage sections
 
 ```
