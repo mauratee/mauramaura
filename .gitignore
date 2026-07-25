@@ -43,5 +43,5 @@ next-env.d.ts
 CLAUDE.md
 AGENTS.md
 
-# Static export build output
-/out/
+# Auto-generated from public/images/ by scripts/generate-grid-items.mjs
+src/app/(public)/gridItems.generated.ts

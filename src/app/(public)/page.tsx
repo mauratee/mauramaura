@@ -2,169 +2,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
-
-// Grid items with actual images from /public/images/
-const gridItems = [
-  {
-    id: 1,
-    title: null,
-    price: null,
-    href: "/work/item-1",
-    image: "/images/P_20260104_160826.jpg",
-  },
-  {
-    id: 3,
-    title: null,
-    price: null,
-    href: "/work/item-3",
-    image: "/images/P_20240407_142229.jpg",
-  },
-  {
-    id: 4,
-    title: null,
-    price: null,
-    href: "/shop/item-4",
-    image: "/images/berkeley-pink.jpg",
-  },
-  {
-    id: 5,
-    title: null,
-    price: null,
-    href: "/work/item-5",
-    image: "/images/P_20230906_103916.jpg",
-  },
-  {
-    id: 7,
-    title: null,
-    price: null,
-    href: "/work/item-7",
-    image: "/images/P_20260107_092430_1.jpg",
-  },
-  {
-    id: 8,
-    title: null,
-    price: null,
-    href: "/work/item-8",
-    image: "/images/oakland-lavender.jpg",
-  },
-  // Row 3
-  {
-    id: 9,
-   title: null,
-    price: null,
-    href: "/shop/item-9",
-    image: "/images/texas-vertebrae.jpg",
-  },
-  {
-    id: 10,
-    title: null,
-    price: null,
-    href: "/work/item-10",
-    image: "/images/tile.jpg",
-  },
-  {
-    id: 11,
-    title: null,
-    price: null,
-    href: "/shop/item-11",
-    image: "/images/dallas-airplane.jpg",
-  },
-  {
-    id: 12,
-    title: null,
-    price: null,
-    href: "/shop/item-12",
-    image: "/images/broken-screens.jpg",
-  },
-  // Row 4
-  {
-    id: 13,
-    title: null,
-    price: null,
-    href: "/work/item-13",
-    image: "/images/mimosa-tree.jpg",
-  },
-  {
-    id: 14,
-    title: null,
-    price: null,
-    href: "/shop/item-14",
-    image: "/images/river-styx.jpg",
-  },
-  {
-    id: 15,
-    title: null,
-    price: null,
-    href: "/shop/item-15",
-    image: "/images/roses1.jpg",
-  },
-  {
-    id: 16,
-    title: null,
-    price: null,
-    href: "/work/item-16",
-    image: "/images/saints-church.jpg",
-  },
-  // Row 5
-  {
-    id: 17,
-    title: null,
-    price: null,
-    href: "/shop/item-17",
-    image: "/images/texas-claw.jpg",
-  },
-  {
-    id: 18,
-    title: null,
-    price: null,
-    href: "/work/item-18",
-    image: "/images/blood-of-jesus.jpg",
-  },
-  {
-    id: 19,
-    title: null,
-    price: null,
-    href: "/shop/item-19",
-    image: "/images/greenwood-cem.jpg",
-  },
-  {
-    id: 20,
-    title: null,
-    price: null,
-    href: "/work/item-20",
-    image: "/images/mimosa-close.jpg",
-  },
-  // Row 6
-  {
-    id: 21,
-    title: null,
-    price: null,
-    href: "/shop/item-21",
-    image: "/images/nj-twin-towers.jpg",
-  },
-  {
-    id: 22,
-    title: null,
-    price: null,
-    href: "/work/item-22",
-    image: "/images/peekskill-swamp.jpg",
-  },
-  {
-    id: 23,
-    title: null,
-    price: null,
-    href: "/shop/item-23",
-    image: "/images/subway1.jpg",
-  },
-  {
-    id: 24,
-    title: null,
-    price: null,
-    href: "/work/item-24",
-    image: "/images/subway2.jpg",
-  },
-];
+import { useEffect, useState } from "react";
+import { gridItems, type GridItem as GridItemType } from "./gridItems.generated";
 
 function DescriptionBar() {
   return (
@@ -188,7 +27,7 @@ function DescriptionBar() {
   );
 }
 
-function GridItem({ item }: { item: (typeof gridItems)[0] }) {
+function GridItem({ item }: { item: GridItemType }) {
   // Track image aspect ratio to position border at actual image edge
   const [imageBottom, setImageBottom] = useState<number | null>(null);
   const containerAspect = 9 / 16; // aspect-[9/16]
@@ -246,10 +85,27 @@ function GridItem({ item }: { item: (typeof gridItems)[0] }) {
   );
 }
 
+function shuffle<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
 function ProductGrid() {
+  // Start with the fixed order so it matches the static export's prerendered
+  // HTML, then shuffle after mount so each page load gets a new order.
+  const [items, setItems] = useState(gridItems);
+
+  useEffect(() => {
+    setItems(shuffle(gridItems));
+  }, []);
+
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 border-l-[1.25px] border-text-primary">
-      {gridItems.map((item) => (
+      {items.map((item) => (
         <GridItem key={item.id} item={item} />
       ))}
     </div>
