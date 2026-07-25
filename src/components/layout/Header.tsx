@@ -3,11 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 
-const menuLinks = [
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
-
 // Custom SVG icons to match reference design
 function MenuIcon({ className }: { className?: string }) {
   return (
@@ -20,24 +15,6 @@ function MenuIcon({ className }: { className?: string }) {
       fill="currentColor"
     >
       <path fillRule="evenodd" d="M23 16v2H1v-2h22zm0-10v2H1V6h22z" />
-    </svg>
-  );
-}
-
-function SearchIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      aria-hidden="true"
-      focusable="false"
-      role="presentation"
-      className={className}
-      viewBox="0 0 24 24"
-      fill="currentColor"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10.533 17.438a6.968 6.968 0 01-6.96-6.96 6.968 6.968 0 016.96-6.96 6.968 6.968 0 016.96 6.96 6.968 6.968 0 01-6.96 6.96zm6.949-1.314a8.917 8.917 0 002.01-5.646c0-4.941-4.02-8.96-8.96-8.96-4.94 0-8.96 4.019-8.96 8.96 0 4.94 4.02 8.96 8.96 8.96 2.082 0 3.996-.72 5.52-1.916l4.962 4.96 1.415-1.413-4.947-4.945z"
-      />
     </svg>
   );
 }
@@ -78,24 +55,6 @@ export function Header() {
                 maura maura studio
               </span>
             </Link>
-
-            {/* Right: Search + Cart icons */}
-            <div className="flex items-center gap-1">
-              <button
-                type="button"
-                className="p-2 text-text-primary hover:text-accent transition-colors"
-                aria-label="Search"
-              >
-                <SearchIcon className="w-5 h-5" />
-              </button>
-              <Link
-                href="/cart"
-                className="p-2 text-text-primary hover:text-accent transition-colors"
-                aria-label="Shopping cart"
-              >
-                <span className="material-symbols-outlined">work</span>
-              </Link>
-            </div>
           </div>
         </div>
       </header>
@@ -130,25 +89,8 @@ export function Header() {
             </button>
           </div>
 
-          {/* Menu links */}
-          <div className="flex-1 px-6 py-8">
-            <ul className="flex flex-col gap-6">
-              {menuLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-xl text-text-primary hover:text-accent transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Menu footer with social links */}
-          <div className="px-6 py-6 border-t border-border">
+          <div className="flex-1 px-6 py-6 border-t border-border">
             <div className="flex flex-col gap-4 text-sm text-text-secondary">
               <a
                 href="mailto:hello@mauramaura.studio"
