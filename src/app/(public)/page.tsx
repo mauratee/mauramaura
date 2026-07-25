@@ -14,39 +14,25 @@ const gridItems = [
     image: "/images/P_20260104_160826.jpg",
   },
   {
-    id: 2,
-    title: "ITEM NAME",
-    price: "PRICE",
-    href: "/shop/item-2",
-    image: "/images/P_20240226_154917.jpeg",
-  },
-  {
     id: 3,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/work/item-3",
     image: "/images/P_20240407_142229.jpg",
   },
   {
     id: 4,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/shop/item-4",
-    image: "/images/Screenshot_2026-01-24.png",
+    image: "/images/berkeley-pink.jpg",
   },
   {
     id: 5,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/work/item-5",
     image: "/images/P_20230906_103916.jpg",
-  },
-  {
-    id: 6,
-    title: "ITEM NAME",
-    price: "PRICE",
-    href: "/shop/item-6",
-    image: "/images/img_0410-ed.jpg",
   },
   {
     id: 7,
@@ -57,39 +43,39 @@ const gridItems = [
   },
   {
     id: 8,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/work/item-8",
-    image: "/images/P_20240226_154917.jpeg",
+    image: "/images/oakland-lavender.jpg",
   },
   // Row 3
   {
     id: 9,
-    title: "ITEM NAME",
-    price: "PRICE",
+   title: null,
+    price: null,
     href: "/shop/item-9",
-    image: "/images/P_20240407_142229.jpg",
+    image: "/images/texas-vertebrae.jpg",
   },
   {
     id: 10,
     title: null,
     price: null,
     href: "/work/item-10",
-    image: "/images/P_20260104_160826.jpg",
+    image: "/images/tile.jpg",
   },
   {
     id: 11,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/shop/item-11",
-    image: "/images/Screenshot_2026-01-24.png",
+    image: "/images/dallas-airplane.jpg",
   },
   {
     id: 12,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/shop/item-12",
-    image: "/images/img_0410-ed.jpg",
+    image: "/images/broken-screens.jpg",
   },
   // Row 4
   {
@@ -97,28 +83,86 @@ const gridItems = [
     title: null,
     price: null,
     href: "/work/item-13",
-    image: "/images/P_20260107_092430_1.jpg",
+    image: "/images/mimosa-tree.jpg",
   },
   {
     id: 14,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/shop/item-14",
-    image: "/images/P_20230906_103916.jpg",
+    image: "/images/river-styx.jpg",
   },
   {
     id: 15,
-    title: "ITEM NAME",
-    price: "PRICE",
+    title: null,
+    price: null,
     href: "/shop/item-15",
-    image: "/images/P_20240226_154917.jpeg",
+    image: "/images/roses1.jpg",
   },
   {
     id: 16,
     title: null,
     price: null,
     href: "/work/item-16",
-    image: "/images/P_20240407_142229.jpg",
+    image: "/images/saints-church.jpg",
+  },
+  // Row 5
+  {
+    id: 17,
+    title: null,
+    price: null,
+    href: "/shop/item-17",
+    image: "/images/texas-claw.jpg",
+  },
+  {
+    id: 18,
+    title: null,
+    price: null,
+    href: "/work/item-18",
+    image: "/images/blood-of-jesus.jpg",
+  },
+  {
+    id: 19,
+    title: null,
+    price: null,
+    href: "/shop/item-19",
+    image: "/images/greenwood-cem.jpg",
+  },
+  {
+    id: 20,
+    title: null,
+    price: null,
+    href: "/work/item-20",
+    image: "/images/mimosa-close.jpg",
+  },
+  // Row 6
+  {
+    id: 21,
+    title: null,
+    price: null,
+    href: "/shop/item-21",
+    image: "/images/nj-twin-towers.jpg",
+  },
+  {
+    id: 22,
+    title: null,
+    price: null,
+    href: "/work/item-22",
+    image: "/images/peekskill-swamp.jpg",
+  },
+  {
+    id: 23,
+    title: null,
+    price: null,
+    href: "/shop/item-23",
+    image: "/images/subway1.jpg",
+  },
+  {
+    id: 24,
+    title: null,
+    price: null,
+    href: "/work/item-24",
+    image: "/images/subway2.jpg",
   },
 ];
 
@@ -132,7 +176,7 @@ function DescriptionBar() {
               <span className="opacity-60" aria-hidden="true">
                 ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
               </span>
-              <span className="mx-3">images and objects curated for you</span>
+              {/* <span className="mx-3">images and objects curated for you</span> */}
               <span className="opacity-60" aria-hidden="true">
                 ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
               </span>

@@ -7,4 +7,4 @@ claude --permission-mode acceptEdits "@PRD.md @progress.txt
 4. Commit your changes.
 5. Update progress.txt with what you did.
 6. Update the PRD status with what was done.
-ONLY DO ONE TASK AT A TIME."
+ONLY DO ONE TASK AT A TIME."git 

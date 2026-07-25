@@ -23,15 +23,6 @@ export function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-6">
             <a
-              href="https://instagram.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-secondary hover:text-text-primary transition-colors text-sm"
-              aria-label="Instagram"
-            >
-              Instagram
-            </a>
-            <a
               href="mailto:hello@mauramaura.studio"
               className="text-text-secondary hover:text-text-primary transition-colors text-sm"
             >

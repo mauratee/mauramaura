@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 
 const menuLinks = [
-  { href: "/shop", label: "Shop" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
@@ -151,14 +150,6 @@ export function Header() {
           {/* Menu footer with social links */}
           <div className="px-6 py-6 border-t border-border">
             <div className="flex flex-col gap-4 text-sm text-text-secondary">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-text-primary transition-colors"
-              >
-                Instagram
-              </a>
               <a
                 href="mailto:hello@mauramaura.studio"
                 className="hover:text-text-primary transition-colors"
