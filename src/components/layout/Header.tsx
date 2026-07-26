@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
+import { DECORATIVE_ACCENTS, pickRandom } from "@/lib/decorativeAccents";
 
 // Custom SVG icons to match reference design
 function MenuIcon({ className }: { className?: string }) {
@@ -21,6 +22,13 @@ function MenuIcon({ className }: { className?: string }) {
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Picked client-side after mount so the static export's prerendered HTML
+  // isn't tied to one glyph and each page load can show a different one.
+  const [accent, setAccent] = useState<string | null>(null);
+
+  useEffect(() => {
+    setAccent(pickRandom(DECORATIVE_ACCENTS));
+  }, []);
 
   return (
     <>
@@ -55,6 +63,16 @@ export function Header() {
                 maura maura studio
               </span>
             </Link>
+
+            {/* Right: Randomized decorative accent, balances the menu button.
+                Width-capped and clipped on narrow screens so long glyphs
+                can't overlap the centered logo. */}
+            <span
+              className="max-w-[64px] sm:max-w-[120px] md:max-w-none overflow-hidden p-2 -mr-2 text-xs sm:text-sm text-text-primary opacity-60 whitespace-nowrap"
+              aria-hidden="true"
+            >
+              {accent}
+            </span>
           </div>
         </div>
       </header>

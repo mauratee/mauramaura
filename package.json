@@ -6,9 +6,9 @@
     "seed": "tsx prisma/seed.ts"
   },
   "scripts": {
-    "predev": "node scripts/generate-grid-items.mjs",
+    "predev": "node scripts/strip-image-metadata.mjs && node scripts/generate-grid-items.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-grid-items.mjs",
+    "prebuild": "node scripts/strip-image-metadata.mjs && node scripts/generate-grid-items.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

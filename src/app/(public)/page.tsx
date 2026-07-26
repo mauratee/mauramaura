@@ -4,23 +4,38 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { gridItems, type GridItem as GridItemType } from "./gridItems.generated";
+import { DECORATIVE_ACCENTS, shuffleArray } from "@/lib/decorativeAccents";
+
+const DEFAULT_ORNAMENT = "࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔";
+// Repeated enough times to overflow at any viewport width; the container
+// clips it to ~85vw so it always fills that width regardless of screen size.
+const REPEAT_COUNT = 100;
+
+function buildOrnamentRow(glyphs: string[]): string {
+  return Array.from({ length: REPEAT_COUNT }, () => glyphs[Math.floor(Math.random() * glyphs.length)]).join(" ");
+}
 
 function DescriptionBar() {
+  // Server-rendered default (matches the static export's prerendered HTML),
+  // then after mount pick 3 random glyphs from the decorative pool and
+  // repeat them in a random mix so each page load looks different.
+  const [ornamentRow, setOrnamentRow] = useState(() => Array(REPEAT_COUNT).fill(DEFAULT_ORNAMENT).join(" "));
+
+  useEffect(() => {
+    const glyphs = shuffleArray(DECORATIVE_ACCENTS).slice(0, 3);
+    setOrnamentRow(buildOrnamentRow(glyphs));
+  }, []);
+
   return (
     <div className="border-b-[1.25px] border-text-primary overflow-hidden">
       <div className="px-2 lg:px-4 py-3">
-        <div className="flex text-xs text-center justify-center">
-          <div className="w-full lg:w-1/2">
-            <p className="text-text-primary">
-              <span className="opacity-60" aria-hidden="true">
-                ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
-              </span>
-              {/* <span className="mx-3">images and objects curated for you</span> */}
-              <span className="opacity-60" aria-hidden="true">
-                ࿔‧ ֶָ֢˚˖𐦍˖˚ֶָ֢ ‧࿔
-              </span>
-            </p>
-          </div>
+        <div className="flex justify-center">
+          <p
+            className="w-[85vw] overflow-hidden whitespace-nowrap text-center text-xs text-text-primary opacity-60"
+            aria-hidden="true"
+          >
+            {ornamentRow}
+          </p>
         </div>
       </div>
     </div>
