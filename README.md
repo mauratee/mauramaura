@@ -5,3 +5,6 @@ A showcase of creative work. \
 
 ## Run Local
 - npm run dev
+
+### Update
+see mauramaura update doc in local documents
