@@ -5,6 +5,7 @@
 
 ## Table of Contents
 
+- [MVP Phase 2: About Page & Email Newsletter](#mvp-phase-2-about-page--email-newsletter) (Tasks MVP2.1 - MVP2.4)
 - [Phase 1: Foundation](#phase-1-foundation) (Tasks 1.1.x - 1.7.x)
 - [Phase 2: Portfolio](#phase-2-portfolio) (Tasks 2.1.x - 2.5.x)
 - [Phase 3: E-commerce](#phase-3-e-commerce) (Tasks 3.1.x - 3.8.x)
@@ -14,6 +15,111 @@
 ---
 
 **Status values:** `TODO` | `IN_PROGRESS` | `FINISHED`
+
+---
+
+**Current Status (2026-08-04):** The MVP single-page site is built and live at
+[mauramaurastudio.com](https://mauramaurastudio.com/) — a static-exported
+Next.js homepage (sticky header w/ hamburger menu, description bar, image
+grid, footer) deployed to DreamHost shared hosting. It does not yet include
+the shop, cart/checkout, admin dashboard, or auth described in the rest of
+this task list (Phases 1.3, 2-3, and most of 5 remain TODO/deferred); the
+Prisma schema and stubbed `auth.ts`/`stripe.ts` files exist but aren't wired
+into anything live. The next planned iteration is
+[MVP Phase 2](#mvp-phase-2-about-page--email-newsletter): an About page and
+email newsletter signup.
+
+---
+
+## MVP Phase 2: About Page & Email Newsletter
+
+---
+
+### Task MVP2.1: Build About Page [TODO]
+
+```
+Category:     Static Pages
+Description:  Create /about page with artist bio and statement.
+
+Steps to Verify:
+  - /about page exists and renders
+  - Content pulled from SiteConfig
+  - Styled per DESIGN.md
+  - Decorative elements from glyph library
+
+Notes:
+  - Not part of the live MVP (no About link/page currently)
+  - src/components/sections/About.tsx has an unused draft predating the
+    MVP homepage pivot — evaluate reusing vs. rebuilding when this task
+    is picked up
+
+```
+
+---
+
+### Task MVP2.2: Evaluate Email Newsletter Platform [TODO]
+
+```
+Category:     Email Newsletter
+Description:  Research and select an email newsletter/marketing platform
+              for collecting subscribers and sending campaigns (e.g. new
+              artwork drops, shop announcements).
+
+Steps to Verify:
+  - Candidate platforms compared (pricing, API, embed/signup options)
+  - Platform selected and account created
+  - API key/credentials stored in environment variables
+  - src/lib/newsletter.ts exports subscribe function
+
+Notes:
+  - Candidate platforms:
+    - Buttondown (https://buttondown.com/seangoedecke) - developer-friendly,
+      markdown-based, simple API, popular with indie/solo creators
+    - Kit, formerly ConvertKit (https://builtwith.kit.com/) - creator-focused
+      email marketing with more built-in automation/landing page features
+
+```
+
+---
+
+### Task MVP2.3: Build Newsletter Signup Form [TODO]
+
+```
+Category:     Email Newsletter
+Description:  Add a newsletter signup form to the site (e.g. footer or
+              dedicated section) wired to the selected platform.
+
+Steps to Verify:
+  - Signup form renders with email input field
+  - Form validates email format
+  - Submission adds subscriber via selected platform's API
+  - Success and error states shown to user
+  - Spam protection (honeypot field)
+  - Styled per DESIGN.md
+
+
+```
+
+---
+
+### Task MVP2.4: Evaluate Agentic Code Sandbox [TODO]
+
+```
+Category:     Dev Tooling
+Description:  Evaluate exe.dev as an internal dev-tooling sandbox for
+              running/testing agentic code changes to this project in
+              isolation, not a site-facing feature.
+
+Steps to Verify:
+  - exe.dev account/access set up
+  - Trial run: sandbox can check out this repo and execute a change
+  - Workflow documented for when to use the sandbox vs. local dev
+  - Decision recorded: adopt, hold, or reject
+
+Notes:
+  - Candidate platform: exe.dev (https://exe.dev/) - agentic code sandbox
+
+```
 
 ---
 
@@ -295,7 +401,7 @@ Steps to Verify:
 
 ---
 
-### Task 1.4.1: Create Public Layout [IN_PROGRESS]
+### Task 1.4.1: Create Public Layout [FINISHED]
 
 ```
 Category:     Layout & Navigation
@@ -310,13 +416,14 @@ Steps to Verify:
   - Responsive on mobile, tablet, desktop
 
 Notes:
-  - Initial components created, needs refinement to match wireframe
+  - Live in MVP: Header + Footer wrap the homepage, deployed at
+    mauramaurastudio.com
 
 ```
 
 ---
 
-### Task 1.4.2: Build Responsive Navigation [IN_PROGRESS]
+### Task 1.4.2: Build Responsive Navigation [FINISHED]
 
 ```
 Category:     Layout & Navigation
@@ -324,10 +431,10 @@ Description:  Build header/navigation matching wireframe design.
 
 Wireframe:    design/main-01-24-2026.png
 
-Header Layout (left to right):
+Header Layout (left to right, as shipped in MVP):
   - LEFT:   Hamburger menu icon (custom 2-line SVG)
   - CENTER: "maura maura studio" in display font (Astloch)
-  - RIGHT:  Search icon + Cart/bag icon
+  - RIGHT:  Randomized decorative glyph accent
 
 IMPLEMENTED SPECIFICATIONS:
 
@@ -340,14 +447,14 @@ IMPLEMENTED SPECIFICATIONS:
     - Centered horizontally in header
     - Links to homepage
 
-  Icons (Custom SVG - matching reference design):
+  Icons:
     - Menu Icon: Custom 2-line hamburger SVG (w-6 h-6)
       Path: "M23 16v2H1v-2h22zm0-10v2H1V6h22z"
-    - Search Icon: Custom thin outline magnifying glass SVG (w-5 h-5)
-    - Cart Icon: Material Symbols "work" (briefcase)
+    - Right side: search/cart icons removed (dead links, see
+      header_search_cart_icons_removed note) and replaced with a
+      randomized decorative glyph that balances the hamburger button
     - Icon color: text-primary (#0F172A)
     - Hover: text-accent (#1E3A5F)
-    - Spacing: gap-1 (4px) between search and cart
 
   Styling:
     - Sticky header (stays at top on scroll)
@@ -359,17 +466,22 @@ IMPLEMENTED SPECIFICATIONS:
   Hamburger Menu (left):
     - Always visible (mobile AND desktop per wireframe)
     - Custom 2-line SVG icon
-    - Opens slide-out menu with: Shop, About, Contact
+    - Opens slide-out menu with an Email (mailto) link
     - Close icon (Material Symbols "close") when menu is open
 
 Steps Verified:
   - [x] Header matches wireframe layout
   - [x] Custom hamburger icon on LEFT
   - [x] Logo centered in Astloch display font
-  - [x] Custom search + cart icons on RIGHT
+  - [x] Search/cart icons removed; decorative accent on RIGHT
   - [x] Menu opens/closes correctly
   - [x] Header is sticky on scroll
   - [x] Responsive sizing
+
+Notes:
+  - Shop/About/Contact menu links from the original spec were removed
+    along with the search/cart icons (dead links, no pages built yet);
+    the slide-out menu currently just has a mailto Email link
 
 ```
 
@@ -1425,6 +1537,12 @@ Steps to Verify:
   - Success message shown after submission
   - Spam protection (honeypot field)
 
+Notes:
+  - Not part of the live MVP; header slide-out menu currently only has
+    a mailto Email link
+  - src/components/sections/Contact.tsx has an unused draft form (client-
+    side only, simulated submission) predating the MVP homepage pivot —
+    evaluate reusing vs. rebuilding when this task is picked up
 
 ```
 
@@ -1448,7 +1566,7 @@ Steps to Verify:
 
 ---
 
-### Task 5.2.1: Build Home Page [IN_PROGRESS]
+### Task 5.2.1: Build Home Page [FINISHED]
 
 ```
 Category:     Static Pages
@@ -1527,31 +1645,17 @@ Steps to Verify:
   - [x] Item labels positioned below border, extending to container bottom
   - [x] Items without labels still show border at image edge
   - [x] Responsive on mobile, tablet, desktop
-  - [ ] Footer component (TODO)
-  - [ ] Hamburger pop out menu (TODO)
-  - [ ] Refine header further (TODO)
+  - [x] Footer component
+  - [x] Hamburger pop out menu
+  - [x] Refine header further
 
 Notes:
   - Grid uses useState + onLoad for dynamic border positioning
   - Images maintain aspect ratio within 9:16 container
-  - About and Contact will be separate pages, not homepage sections
-
-```
-
----
-
-### Task 5.2.2: Build About Page [TODO]
-
-```
-Category:     Static Pages
-Description:  Create /about page with artist bio and statement.
-
-Steps to Verify:
-  - /about page exists and renders
-  - Content pulled from SiteConfig
-  - Styled per DESIGN.md
-  - Decorative elements from glyph library
-
+  - Live as the MVP homepage at mauramaurastudio.com (static export)
+  - About and Contact are not yet built as separate pages (see Tasks
+    5.1.1, MVP2.1) — the unused src/components/sections/{About,Contact}.tsx
+    scaffolding predates this grid implementation and isn't wired in
 
 ```
 
